@@ -1,0 +1,64 @@
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            font_size: 50
+            color: 1, 0, 0, 1
+            text: app.mainn()
+        Label:
+            font_size: 50
+            color: 1, 0, 0, 1
+            id: show
+            text: ''
+        
+        Button:
+            background_color: (16/255, 21/255, 173/255, 1)
+            text: ''
+            on_press: app.show()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                font_size: 50
+                background_color: (1,191/255, 0, 1)
+                text: '-'
+                on_press:
+                    root.manager.current = 'adding'
+            
+            Button:
+                font_size: 50
+                background_color: (0, 1, 0.4, 1)
+                text: '+'
+                on_press:
+                    root.manager.current = 'sub'
+
+<Subt>:
+    BoxLayout:
+        orientation: 'vertical'
+        FloatInput:
+            id: inp
+        Button:
+            background_color: (16/255, 21/255, 173/255, 1)
+            text: 'Add'
+            on_press: app.subtract()
+        Button:
+            background_color: (1, 0, 0, 1)
+            text: 'Back to menu'
+            on_press: 
+                root.manager.transition.direction = 'down'
+                root.manager.current = 'menu'
+
+<Adding>:
+    BoxLayout:
+        orientation: 'vertical'
+        FloatInput:
+            id: inp
+        Button:
+            background_color: (16/255, 21/255, 173/255, 1)
+            text: 'Add'
+            on_press: app.add()
+        Button:
+            background_color: (1, 0, 0, 1)
+            text: 'Back to menu'
+            on_press: 
+                root.manager.current = 'menu'
